@@ -1,23 +1,23 @@
-#ifndef STACK 
-#define STACK 
+#ifndef STACK
+#define STACK
 
-class Stack 
-{ 
-	int *arr; 
-	int top; 
-	int capacity; 
-public:
-	Stack(int size = 10);
-	~Stack();  
+class Stack {
+  int *arr;
+  int top;
+  int capacity;
 
-	void push(int); 
+ public:
+  Stack(int size = 10);
+  ~Stack();
 
-	int pop(); 
-	int peek(); 
-	int size(); 
+  void push(int);
 
-	bool isEmpty(); 
-	bool isFull();  
-}; 
+  int pop();
+  int peek();
+  int size();
+
+  bool isEmpty();
+  bool isFull();
+};
 
 #endif
