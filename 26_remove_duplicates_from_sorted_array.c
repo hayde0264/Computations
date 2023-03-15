@@ -1,7 +1,7 @@
 /*
  * -----------------------------------------------------------------------------
  * see: https://leetcode.com/problems/remove-duplicates-from-sorted-array/ 
- * time: O(nlogn)
+ * time:       O(nlogn)
  * space:      O(n)
  *
  * Author -    Hayden Howell
