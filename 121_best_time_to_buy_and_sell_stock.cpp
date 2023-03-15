@@ -1,9 +1,3 @@
-#include <sys/resource.h>
-
-#include <algorithm>
-#include <cstdint>
-#include <cstdio>
-#include <vector>
 /*
  * see:
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
@@ -11,6 +5,13 @@
  * space: O(1)
  * time:  O(n)
  */
+
+#include <sys/resource.h>
+#include <algorithm>
+#include <cstdint>
+#include <cstdio>
+#include <vector>
+
 class Solution {
  public:
   int maxProfit(std::vector<int>& prices);
