@@ -1,27 +1,52 @@
-#include <cstddef>
-#include <cstdio>
-/*
- * see: https://leetcode.com/problems/reverse-linked-list/description/
- *
- * space: O(1)
- * time:  O(n)
- */
+#include <stdio.h>
+#include <stdlib.h>
 
-struct Node {
-  int data;
-  Node* next;
-};
-struct Solution {
-  Node* reverse(Node* head);
-};
-Node* Solution::reverse(Node* head) {
-  Node* prev = nullptr;
-  Node* curr = head;
-  while (curr) {
-    Node* nextTemp = curr->next;
-    curr->next = prev;
-    prev = curr;
-    curr = nextTemp;
-  }
-  return prev;
+struct Node { 
+	int data; 
+	struct Node* next; 
+};  
+
+void printList(struct Node* head) { 
+	struct Node* ptr = head; 
+	while (ptr) { 
+		printf("%d -> ", ptr->data); 
+		ptr = ptr->next; 
+	} 
+	printf("NULL\n"); 
+} 
+
+void insert(struct Node** head, int data) { 
+	struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));   
+	newNode->data = data; 
+	newNode->next = *head; 
+	*head = newNode; 
+} 
+
+void reverse(struct Node** head) { 
+	struct Node* previous = NULL; 
+	struct Node* current = *head; 
+	while (current != NULL) { 
+		struct Node* next = current->next; 
+		current->next = previous; 
+		previous = current; 
+		current = next; 
+	} 
+	*head = previous; 
+} 
+int main(void)
+{
+    // input keys
+    int keys[] = { 1, 2, 3, 4, 5, 6 };
+    int n = sizeof(keys)/sizeof(keys[0]);
+ 
+    struct Node* head = NULL;
+    for (int i = n - 1; i >=0; i--) {
+        insert(&head, keys[i]);
+    }
+ 
+    reverse(&head);
+ 
+    printList(head);
+ 
+    return 0;
 }

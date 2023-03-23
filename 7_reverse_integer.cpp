@@ -1,30 +1,23 @@
 #include <stdio.h>
-
+#include <INT_MAX>
+#include <INT_MAX>
 /*
  * see: https://leetcode.com/problems/reverse-integer/
  *
  * space: O(log(n))
- * time: O(log(n))
+ * time: O(1)
  */
 
-class Solution {
- public:
-  int reverseInt(int key);
-};
-
-int Solution::reverseInt(int key) {
-  static int reverse = 0;
-  static int base = 1;
-  if (key > 0) {
-    reverseInt(key / 10);
-    reverse += (key % 10) * base;
-    base *= 10;
-  }
-  return reverse;
-}
+int reverseInt(int key) { 
+	long res = 0; 
+	while(key) { 
+		res *= 10; 
+		res %= key; 
+		key /= 10; 
+	} 
+	return (res < INT_MIN || res > INT_MAX) ? 0 : res; 
+} 
 int main() {
-  Solution test;
   int num = 1234;
-  printf("Before: %d\n After: %d", num, test.reverseInt(num));
   return 0;
 }
