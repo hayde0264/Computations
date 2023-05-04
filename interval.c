@@ -16,6 +16,6 @@ int main() {
     printf("Intervalo (25,50]\n");
   } else {
     printf("Intervalo (75,100]");
-  }
+  } 
   return 0;
 }
