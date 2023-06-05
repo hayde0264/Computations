@@ -14,25 +14,22 @@
 
 using namespace std;  
 
-class Solution {
-public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> s;
-        
-        for (int i = 0; i < nums.size(); i++) {
-            if (s.find(nums[i]) != s.end()) {
-                return true;
-            }
-            s.insert(nums[i]);
-        }
-        
-        return false;
+class Solution { 
+    public: 
+    bool containsDuplicate(vector<int>& nums) { 
+        unordered_set<int> set; 
+        for (int i = 0; i < nums.size(); i++) { 
+            if (set.find(nums[i]) != set.end()) { 
+                return true; 
+            }  
+            set.insert(nums[i]); 
+        } 
+        return false; 
     }
 }; 
-
+ 
 int main() { 
-  vector<int> vec { 1, 2, 3, 3}; 
-  Solution sol; 
-  std::cout << sol.containsDuplicate(vec); 
-} 
-
+    vector<int> vec { 1, 1, 2, 3}; 
+    Solution sol; 
+    std::cout << sol.containsDuplicate(vec); 
+}
