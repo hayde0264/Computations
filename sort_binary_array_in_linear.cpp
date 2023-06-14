@@ -12,29 +12,35 @@
 
 #include <iostream>
 
-void swap(int arr[], int i, int j) {
-  int temp = arr[i];
-  arr[i] = arr[j];
-  arr[j] = temp;
+void swap(int arr[], int i, int j)
+{
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }
 
-void sort(int arr[], int len) {
-  int j = -1;
-  for (int i = 0; i < len; i++) {
-    if (arr[i] < 1) {
-      j++;
-      swap(arr, i, j);
+void sort(int arr[], int len)
+{
+    int j = -1;
+    for (int i = 0; i < len; i++)
+    {
+        if (arr[i] < 1)
+        {
+            j++;
+            swap(arr, i, j);
+        }
     }
-  }
 }
 
-int main() {
-  int a[] = {1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0};
-  int n = sizeof(a) / sizeof(a[0]);
+int main()
+{
+    int a[] = {1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0};
+    int n = sizeof(a) / sizeof(a[0]);
 
-  // Function call
-  sort(a, n);
-  for (int i = 0; i < n; i++) std::cout << a[i] << " ";
+    // Function call
+    sort(a, n);
+    for (int i = 0; i < n; i++)
+        std::cout << a[i] << " ";
 
-  return 0;
+    return 0;
 }

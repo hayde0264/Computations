@@ -1,65 +1,63 @@
-#include <stdio.h> 
-#include <stdlib.h> 
+#include <stdio.h>
+#include <stdlib.h>
 
-struct Node 
-{ 
-	int data; 
-	struct Node* next; 
-};  
-
-void find_mid(struct Node* head) 
-{ 
-	struct Node* slow = head; 
-	struct Node* fast = head;  
-	if (head != NULL) 
-	{ 
-		while (fast != NULL && fast->next != NULL) 
-		{ 
-			fast = fast->next->next; 
-			slow = slow->next; 
-		}  
-		printf("The middle element is %d\n", slow->data); 
-	} 
-} 
-
-void push(struct Node** head_ref, int element) 
+struct Node
 {
-	// create node 
-	struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));  
+    int data;
+    struct Node *next;
+};
 
-	// insert node 
-	new_node->data = element; 
+void find_mid(struct Node *head)
+{
+    struct Node *slow = head;
+    struct Node *fast = head;
+    if (head != NULL)
+    {
+        while (fast != NULL && fast->next != NULL)
+        {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        printf("The middle element is %d\n", slow->data);
+    }
+}
 
-	// link old list off new node 
-	new_node->next = (*head_ref); 
+void push(struct Node **head_ref, int element)
+{
+    // create node
+    struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
 
-	// move head to point to new node 
-	(*head_ref) = new_node; 
-} 
+    // insert node
+    new_node->data = element;
 
-void print(struct Node* ptr) 
-{ 
-	while (ptr != NULL) 
-	{ 
-		printf("%d->", ptr->data); 
-		ptr = ptr->next; 
-	}
-	printf("NULL\n"); 
-}  
+    // link old list off new node
+    new_node->next = (*head_ref);
 
-int main() 
-{ 
-	struct Node* head = NULL; 
-	int i; 
+    // move head to point to new node
+    (*head_ref) = new_node;
+}
 
-	for (i = 5; i > 0; i--) 
-	{ 
-		push(&head, i); 
-		print(head); 
-		find_mid(head); 
-	} 
+void print(struct Node *ptr)
+{
+    while (ptr != NULL)
+    {
+        printf("%d->", ptr->data);
+        ptr = ptr->next;
+    }
+    printf("NULL\n");
+}
 
-	return 0; 
-} 
+int main()
+{
+    struct Node *head = NULL;
+    int i;
 
+    for (i = 5; i > 0; i--)
+    {
+        push(&head, i);
+        print(head);
+        find_mid(head);
+    }
 
+    return 0;
+}

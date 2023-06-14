@@ -15,24 +15,29 @@
 #include <unordered_set>
 #include <vector>
 
-std::unordered_set<int> findDuplicates(std::vector<int> nums) {
-  std::unordered_set<int> res;
-  for (int i : nums) {
-    int index = abs(i) - 1;
-    if (nums[index] < 0) {
-      res.insert(abs(i));
+std::unordered_set<int> findDuplicates(std::vector<int> nums)
+{
+    std::unordered_set<int> res;
+    for (int i : nums)
+    {
+        int index = abs(i) - 1;
+        if (nums[index] < 0)
+        {
+            res.insert(abs(i));
+        }
+        nums[index] = -nums[index];
     }
-    nums[index] = -nums[index];
-  }
-  return res;
+    return res;
 }
-int main() {
-  std::vector<int> nums = {5, 3, 4, 2, 5, 1, 2};
+int main()
+{
+    std::vector<int> nums = {5, 3, 4, 2, 5, 1, 2};
 
-  std::unordered_set<int> result = findDuplicates(nums);
-  for (auto& i : result) {
-    std::cout << i << ' ';
-  }
+    std::unordered_set<int> result = findDuplicates(nums);
+    for (auto &i : result)
+    {
+        std::cout << i << ' ';
+    }
 
-  return 0;
+    return 0;
 }

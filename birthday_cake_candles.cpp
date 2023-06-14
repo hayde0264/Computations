@@ -20,24 +20,29 @@ string rtrim(const string &);
 vector<string> split(const string &);
 
 // algorithm
-int birthdayCakeCandles(vector<int> candles) {
-  int tallest = 0;
-  int len = candles.size();
-  for (int i = 0; i < len; i++) {
-    scanf("%d", &candles[i]);
-    if (candles[i] > tallest) tallest = candles[i];
-    if (candles[i] == tallest) tallest++;
-  }
-  return tallest;
+int birthdayCakeCandles(vector<int> candles)
+{
+    int tallest = 0;
+    int len = candles.size();
+    for (int i = 0; i < len; i++)
+    {
+        scanf("%d", &candles[i]);
+        if (candles[i] > tallest)
+            tallest = candles[i];
+        if (candles[i] == tallest)
+            tallest++;
+    }
+    return tallest;
 }
-int main() {
-  int total = 0, result = 0;
-  vector<int> candles{total};
+int main()
+{
+    int total = 0, result = 0;
+    vector<int> candles{total};
 
-  printf("How many candles are there\n");
-  scanf("%d", &total);
+    printf("How many candles are there\n");
+    scanf("%d", &total);
 
-  result = birthdayCakeCandles(candles);
-  printf("%d\n", result);
-  return 0;
+    result = birthdayCakeCandles(candles);
+    printf("%d\n", result);
+    return 0;
 }

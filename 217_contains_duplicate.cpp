@@ -6,30 +6,35 @@
 
     Time: O(n)
     Space: O(n)
-*/ 
+*/
 
-#include <vector> 
-#include <iostream> 
+#include <iostream>
 #include <unordered_set>
+#include <vector>
 
-using namespace std;  
+using namespace std;
 
-class Solution { 
-    public: 
-    bool containsDuplicate(vector<int>& nums) { 
-        unordered_set<int> set; 
-        for (int i = 0; i < nums.size(); i++) { 
-            if (set.find(nums[i]) != set.end()) { 
-                return true; 
-            }  
-            set.insert(nums[i]); 
-        } 
-        return false; 
+class Solution
+{
+  public:
+    bool containsDuplicate(vector<int> &nums)
+    {
+        unordered_set<int> set;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (set.find(nums[i]) != set.end())
+            {
+                return true;
+            }
+            set.insert(nums[i]);
+        }
+        return false;
     }
-}; 
- 
-int main() { 
-    vector<int> vec { 1, 1, 2, 3}; 
-    Solution sol; 
-    std::cout << sol.containsDuplicate(vec); 
+};
+
+int main()
+{
+    vector<int> vec{1, 1, 2, 3};
+    Solution sol;
+    std::cout << sol.containsDuplicate(vec);
 }
