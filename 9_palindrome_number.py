@@ -1,21 +1,8 @@
-class Solution:
-    def isPalindrome(self, x: int) -> bool:
-        if x < 0: return False
-        
-        div = 1
-        while x >= 10 * div:
-            div *= 10
-            
-        while x:
-            right = x % 10
-            left = x // div
-            
-            if left != right: return False
-            
-            x = (x % div) // 10
-            div = div / 100
-        return True
-    
+def isPaldinrome(x: int):
+    if x < 0:
+        return False
+    else:
+        return str(x)[::-1] == str(x)
 
-sol = Solution() 
-print(sol.isPalindrome(1001))
+
+print(isPaldinrome(101))
