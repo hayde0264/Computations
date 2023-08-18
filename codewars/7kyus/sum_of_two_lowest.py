@@ -12,8 +12,8 @@ For example, when an array is passed like [19, 5, 42, 2, 77], the output should 
 
 
 def sum_two_smallest_numbers(numbers):
-    low = min(numbers)
-    print(low)
+    numbers.sort()
+    return numbers[0] + numbers[1]
 
 
-sum_two_smallest_numbers([1, 2, 3])
+print(sum_two_smallest_numbers([1, 2, 3]))
