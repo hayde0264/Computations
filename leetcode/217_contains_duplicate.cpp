@@ -1,40 +1,26 @@
-/*
-    Given int array, return true if any value appears at least twice
-    Ex. nums = [1,2,3,1] -> true, nums = [1,2,3,4] -> false
-
-    If seen num previously then has dupe, else insert into hash set
-
-    Time: O(n)
-    Space: O(n)
-*/
-
 #include <iostream>
-#include <unordered_set>
-#include <vector>
-
+#include <unordered_map>
 using namespace std;
 
 class Solution
 {
-  public:
-    bool containsDuplicate(vector<int> &nums)
+public:
+    bool containsDuplicate(const vector<int> &nums)
     {
-        unordered_set<int> set;
+        unordered_map<int, int> m;
         for (int i = 0; i < nums.size(); i++)
-        {
-            if (set.find(nums[i]) != set.end())
-            {
+            m[nums[i]]++;
+        for (const auto &i : m)
+            if (i.second == 2)
                 return true;
-            }
-            set.insert(nums[i]);
-        }
         return false;
     }
 };
 
 int main()
 {
-    vector<int> vec{1, 1, 2, 3};
     Solution sol;
-    std::cout << sol.containsDuplicate(vec);
+    vector<int> v{1, 2, 3, 3};
+    cout << sol.containsDuplicate(v) << '\n';
+    return 0;
 }
